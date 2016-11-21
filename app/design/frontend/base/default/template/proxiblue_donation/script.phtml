@@ -1,0 +1,22 @@
+<script type="text/javascript">
+
+    function updateDonation(id) {
+        var container = $('review-buttons-container');
+        container.addClassName('disabled');
+        container.setStyle({opacity:.8});
+        checkout._disableEnableAll(container, true);
+        Element.show('donation-please-wait');
+        if($(id).checked) {
+            var url = 'donation/donation/add';
+        } else {
+            var url = 'donation/donation/remove';
+        }
+        new Ajax.Request('/' + url , {
+            onComplete: function(response) {
+                alert(response.responseText);
+                checkout.reloadReviewBlock();
+            }
+        });
+    }
+
+</script>

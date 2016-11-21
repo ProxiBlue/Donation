@@ -1,0 +1,28 @@
+<?php
+$_product = $this->getProduct();
+$checked = '';
+if ($this->isInCart()) {
+    $checked = 'checked="checked" ';
+}
+?>
+<div class="proxiblue-donation">
+    <ul>
+        <li class="media">
+            <img src="<?php echo $_product->getImageUrl() ?>" width="35" height="35"
+                 alt="<?php echo $_product->getName() ?>" class="img"/>
+            <p class="body">
+                <input type="checkbox" class="" <?php echo $checked ?>name="<?php echo $_product->getUrlKey() ?>"
+                       id="<?php echo $_product->getUrlKey() ?>"
+                       onclick="updateDonation('<?php echo $_product->getUrlKey() ?>')">
+                <label for="<?php echo $_product->getUrlKey() ?>"><?php echo $_product->getShortDescription() ?></label>
+            </p>
+        </li>
+    </ul>
+    <span class="please-wait" id="donation-please-wait" style="display:none;">
+            <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>"
+                 alt="<?php echo $this->__('Updating Shopping Bag...') ?>"
+                 title="<?php echo $this->__('Updating Shopping Bag...') ?>" class="v-middle"/> <?php echo $this->__(
+            'Updating Shopping Bag...'
+        ) ?>
+    </span>
+</div>

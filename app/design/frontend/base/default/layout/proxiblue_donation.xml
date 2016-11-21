@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+
+    <checkout_onepage_index>
+        <reference name="before_body_end">
+            <block name="proxiblue.donation" type="proxiblue_donation/onepage" template="proxiblue_donation/script.phtml"/>
+        </reference>
+    </checkout_onepage_index>
+
+    <!-- OnePageCheckout -->
+    <checkout_onepage_review>
+        <reference name="checkout.onepage.review.info.items.before">
+            <block name="proxiblue.donation" type="proxiblue_donation/onepage" template="proxiblue_donation/donation.phtml" after="-"/>
+        </reference>
+    </checkout_onepage_review>
+
+</layout>
